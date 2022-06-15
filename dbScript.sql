@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS test2.USERS_METRICS
 	swipes_per_day CHAR(2),
 	is_premium BOOLEAN NOT NULL,
 	is_boosted BOOLEAN NOT NULL,
-	PRIMARY KEY (user_id),
+	PRIMARY KEY (user_id)
 )
 
 --proffession VARCHAR(24),
@@ -43,6 +43,7 @@ CREATE TABLE IF NOT EXISTS test2.WORK_EXP
 	PRIMARY KEY (work_exp_id),
 	FOREIGN KEY(user_id) REFERENCES test2.USERS_METRICS(user_id)
 )
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS test2.WORK_EXP
     OWNER to postgres;
@@ -69,14 +70,16 @@ CREATE TABLE IF NOT EXISTS test2.WORKER_QUIRKS
 	soft_skill_1 CHAR(64),
 	soft_skill_2 CHAR(64),
 	soft_skill_3 CHAR(64),
-	hard_skill_1 CHAR(64)
-	hard_skill_2 CHAR(64)
-	hard_skill_3 CHAR(64)
-	hard_skill_4 CHAR(64)
-	hard_skill_5 CHAR(64)
-	PRIMARY KEY(user_id) REFERENCES test2.USERS_METRICS(user_id)
+	hard_skill_1 CHAR(64),
+	hard_skill_2 CHAR(64),
+	hard_skill_3 CHAR(64),
+	hard_skill_4 CHAR(64),
+	hard_skill_5 CHAR(64),
+	PRIMARY KEY(user_id), 
+	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES test2.USERS_METRICS(user_id)
 )
 
+TABLESPACE pg_default;
 ALTER TABLE IF EXISTS test2.WORKER_QUIRKS																		
     OWNER to postgres;
 
@@ -87,7 +90,7 @@ CREATE TABLE IF NOT EXISTS test2.RECRUITER_QUIRKS
 	job_postion VARCHAR(16) NOT NULL,
 	salary VARCHAR(16),
 	location_job VARCHAR(64),
-	is_on_site BOOLEAN NOT NOT,
+	is_on_site BOOLEAN NOT NULL,
 	linked_in_link VARCHAR(32),
 	glass_door_link VARCHAR(32),
 	work_exp_years_req CHAR(2),
@@ -95,14 +98,15 @@ CREATE TABLE IF NOT EXISTS test2.RECRUITER_QUIRKS
 	soft_skill_1 CHAR(64),
 	soft_skill_2 CHAR(64),
 	soft_skill_3 CHAR(64),
-	hard_skill_1 CHAR(64)
-	hard_skill_2 CHAR(64)
-	hard_skill_3 CHAR(64)
-	hard_skill_4 CHAR(64)
-	hard_skill_5 CHAR(64)
-	PRIMARY KEY(user_id) REFERENCES test2.USERS_METRICS(user_id)
+	hard_skill_1 CHAR(64),
+	hard_skill_2 CHAR(64),
+	hard_skill_3 CHAR(64),
+	hard_skill_4 CHAR(64),
+	hard_skill_5 CHAR(64),
+	PRIMARY KEY(user_id), 
+	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES test2.USERS_METRICS(user_id)
 )
-
+TABLESPACE pg_default;
 ALTER TABLE IF EXISTS test2.RECRUITER_QUIRKS
     OWNER to postgres;
 
@@ -115,10 +119,11 @@ CREATE TABLE IF NOT EXISTS test2.USER_MATCH_ALGO
 	recruiter_l_worker BOOLEAN NOT NULL,
 	worker_l_recruiter BOOLEAN NOT NULL,
 	PRIMARY KEY(match_id),
-	FOREIGN KEY(user_id_worker) REFERENCES test.USERS_METRICS(user_id),
-	FOREIGN KEY(user_id_recruiter) REFERENCES test.USERS_METRICS(user_id)
+	FOREIGN KEY(user_id_worker) REFERENCES test2.USERS_METRICS(user_id),
+	FOREIGN KEY(user_id_recruiter) REFERENCES test2.USERS_METRICS(user_id)
 	
 )
+TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS test2.USER_MATCH_ALGO
     OWNER to postgres;
