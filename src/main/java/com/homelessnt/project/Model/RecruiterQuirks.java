@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.annotation.JsonAppend.Prop;
 import java.sql.Date;
 
 public class RecruiterQuirks {
+    private int listing_id;
     private int user_id;
     private String company_name; 
     private String job_postion;
@@ -28,8 +29,14 @@ public class RecruiterQuirks {
     private String hard_skill_3;
     private String hard_skill_4;
     private String hard_skill_5;
+    private String major_1;
+    private String major_2;
+    private String major_3;
+    private String major_4;
+    private String major_5;
 
-    public RecruiterQuirks(int user_id, String company_name, String job_postion, String salary, String location_job, boolean is_on_site, String linked_in_link, String glass_door_link, char work_exp_years_req, String industry_name, String soft_skill_1, String soft_skill_2, String soft_skill_3, String hard_skill_1, String hard_skill_2, String hard_skill_3, String hard_skill_4, String hard_skill_5) {
+    public RecruiterQuirks(int listing_id, int user_id, String company_name, String job_postion, String salary, String location_job, boolean is_on_site, String linked_in_link, String glass_door_link, char work_exp_years_req, String industry_name, String soft_skill_1, String soft_skill_2, String soft_skill_3, String hard_skill_1, String hard_skill_2, String hard_skill_3, String hard_skill_4, String hard_skill_5, String major_1, String major_2,String major_3,String major_4,String major_5) {
+        this.listing_id = listing_id;
         this.user_id = user_id;
         this.company_name = company_name;
         this.job_postion = job_postion;
@@ -48,8 +55,19 @@ public class RecruiterQuirks {
         this.hard_skill_3 = hard_skill_3;
         this.hard_skill_4 = hard_skill_4;
         this.hard_skill_5 = hard_skill_5;
+        this.major_1 = major_1;
+        this.major_2 = major_2;
+        this.major_3 = major_3;
+        this.major_4 = major_4;
+        this.major_5 = major_5;
+    }
+    public int getListing_id() {
+        return this.listing_id;
     }
 
+    public void setListing_id(int listing_id) {
+        this.listing_id = listing_id;
+    }
     public int getUser_id() {
         return this.user_id;
     }
@@ -198,4 +216,41 @@ public class RecruiterQuirks {
         this.hard_skill_5 = hard_skill_5;
     }
 
+    public String getMajor_1() {
+        return this.major_1;
+    }
+
+    public void setMajor_1(String major_1) {
+        this.major_1 = major_1;
+    }
+    public String getMajor_2() {
+        return this.major_2;
+    }
+
+    public void setMajor_2(String major_2) {
+        this.major_2 = major_2;
+    }
+    public String getMajor_3() {
+        return this.major_3;
+    }
+
+    public void setMajor_3(String major_3) {
+        this.major_3 = major_3;
+    }
+
+    public String getMajor_4() {
+        return this.major_4;
+    }
+
+    public void setMajor_4(String major_4) {
+        this.major_4= major_4;
+    }
+
+    public String getMajor_5() {
+        return this.major_5;
+    }
+
+    public void setMajor_5(String major_5) {
+        this.major_5 = major_5;
+    }
 }
