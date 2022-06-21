@@ -1,6 +1,9 @@
--- Table: test2.users
-
- --DROP TABLE IF EXISTS test2.users;
+DROP TABLE IF EXISTS test2.WORKER_QUIRKS;
+DROP TABLE IF EXISTS test2.RECRUITER_QUIRKS;
+DROP TABLE IF EXISTS test2.USER_MATCH_ALGO;
+DROP TABLE IF EXISTS test2.WORK_EXP;
+DROP TABLE IF EXISTS USERS_METRICS;
+DROP TABLE IF EXISTS test2.USERS_METRICS;
 
 CREATE TABLE IF NOT EXISTS test2.USERS_METRICS														
 (
@@ -28,6 +31,7 @@ ALTER TABLE IF EXISTS test2.USERS_METRICS
 
 
 -----------------------------------------
+
 CREATE TABLE IF NOT EXISTS test2.WORK_EXP																							
 (
 	work_exp_id serial,
@@ -47,7 +51,6 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS test2.WORK_EXP
     OWNER to postgres;
-
 
 
 
@@ -83,6 +86,7 @@ TABLESPACE pg_default;
 ALTER TABLE IF EXISTS test2.WORKER_QUIRKS																		
     OWNER to postgres;
 
+
 CREATE TABLE IF NOT EXISTS test2.RECRUITER_QUIRKS																																									
 (
 	user_id serial,
@@ -109,6 +113,7 @@ CREATE TABLE IF NOT EXISTS test2.RECRUITER_QUIRKS
 TABLESPACE pg_default;
 ALTER TABLE IF EXISTS test2.RECRUITER_QUIRKS
     OWNER to postgres;
+
 
 
 CREATE TABLE IF NOT EXISTS test2.USER_MATCH_ALGO
