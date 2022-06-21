@@ -21,9 +21,8 @@ public class UserMetricsController {
     }
 
     @GetMapping("/showUsers")
-    public ResponseEntity<List<UserMetrics>> showUsers(Model model){
+    public ResponseEntity<List<UserMetrics>> showUsers(){
         var users = (List<UserMetrics>) dao.findAll();
-        model.addAttribute("users", users);
         return new ResponseEntity<>(users,HttpStatus.OK);
     }
 }
