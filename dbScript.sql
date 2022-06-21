@@ -89,6 +89,7 @@ ALTER TABLE IF EXISTS test2.WORKER_QUIRKS
 
 CREATE TABLE IF NOT EXISTS test2.RECRUITER_QUIRKS																																									
 (
+	listing_id SERIAL,
 	user_id serial,
 	company_name VARCHAR(16) NOT NULL,
 	job_postion VARCHAR(16) NOT NULL,
@@ -107,6 +108,11 @@ CREATE TABLE IF NOT EXISTS test2.RECRUITER_QUIRKS
 	hard_skill_3 CHAR(64),
 	hard_skill_4 CHAR(64),
 	hard_skill_5 CHAR(64),
+	major_1 CHAR(32),
+	major_2 CHAR(32),
+	major_3 CHAR(32),
+	major_4 CHAR(32),
+	major_5 CHAR(32),
 	PRIMARY KEY(user_id), 
 	CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES test2.USERS_METRICS(user_id)
 )
