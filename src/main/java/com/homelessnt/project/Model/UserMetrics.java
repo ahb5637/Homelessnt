@@ -7,7 +7,8 @@ import javax.persistence.Table;
 
 import java.sql.Date;
 @Entity
-@Table(name = "USERS_METRICS")
+
+@Table(name = "users_metrics",schema = "test2")
 public class UserMetrics{
     
     @Id
@@ -25,6 +26,9 @@ public class UserMetrics{
     private boolean is_premium;
     private boolean is_boosted;
 
+
+    public UserMetrics() {
+    }
 
     public UserMetrics(int user_id, String username, String first_name, String last_name, String email, 
     String password, Date birth_date, char gender, boolean is_recruiter, char swipes_per_day, 
