@@ -7,5 +7,6 @@ import com.homelessnt.project.Model.UserMetrics;
 
 @Repository
 public interface UserMetricsRepository extends JpaRepository<UserMetrics,Integer> {
-    
+    boolean existsByusername(String username);
+    boolean existsByemail(String email);
 }

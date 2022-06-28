@@ -12,7 +12,7 @@ import java.sql.Date;
 public class UserMetrics{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int user_id;
     private String username;
     private String first_name;

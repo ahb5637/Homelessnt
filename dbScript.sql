@@ -7,7 +7,7 @@ DROP TABLE IF EXISTS test2.USERS_METRICS;
 
 CREATE TABLE IF NOT EXISTS test2.USERS_METRICS														
 (
-	user_id serial,
+	user_id SERIAL,
 	username VARCHAR(16) NOT NULL,
 	first_name VARCHAR(16) NOT NULL,
 	Last_name VARCHAR(16) NOT NULL,
@@ -34,7 +34,7 @@ ALTER TABLE IF EXISTS test2.USERS_METRICS
 
 CREATE TABLE IF NOT EXISTS test2.WORK_EXP																							
 (
-	work_exp_id serial,
+	work_exp_id SERIAL,
 	user_id INT NOT NULL,
 	company_name VARCHAR(16) NOT NULL,
 	date_started DATE NOT NULL, 

@@ -8,8 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
 import com.homelessnt.project.Model.UserMetrics;
 import com.homelessnt.project.Persitance.UserMetricsDao;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+
 
 @RestController
 public class UserMetricsController {
@@ -24,5 +30,11 @@ public class UserMetricsController {
     public ResponseEntity<List<UserMetrics>> showUsers(){
         var users = (List<UserMetrics>) dao.findAll();
         return new ResponseEntity<>(users,HttpStatus.OK);
+    }
+    
+    @PostMapping("")
+    public ResponseEntity<String> CreateUser(@RequestBody UserMetrics newUser){ 
+        return new ResponseEntity<>(dao.addNewUser(newUser),HttpStatus.OK);
+
     }
 }
