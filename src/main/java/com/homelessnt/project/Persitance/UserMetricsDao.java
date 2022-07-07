@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import com.homelessnt.project.Model.UserMetrics;
 import com.homelessnt.project.Repositories.UserMetricsRepository;
 
+import kotlin.reflect.jvm.internal.impl.descriptors.Visibilities.Public;
+
 @Repository
 public class UserMetricsDao {
 
@@ -17,6 +19,9 @@ public class UserMetricsDao {
 
     public List<UserMetrics> findAll(){
         return repository.findAll();
+    }
+    public UserMetrics findUserMetrics(int id){
+        return repository.getReferenceById(id);
     }
     public String addNewUser(UserMetrics newUser){
 
@@ -36,7 +41,9 @@ public class UserMetricsDao {
             
             
         }
-        
-        
+    }
+    public void deleteUser(int id){
+        repository.deleteById(id);
+        repository.flush();
     }
 }
